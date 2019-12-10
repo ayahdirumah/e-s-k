@@ -20,7 +20,7 @@
         "appId": "com.starter.kit",
         "win": {
             "compression": "maximum",
-            "target": "nsis-web",
+            "target": "nsis",
             "icon": "assets/icons/icon.ico"
         },
         "mac": {
@@ -32,7 +32,7 @@
                 "AppImage"
             ]
         },
-        "nsisWeb": {
+        "nsis": {
             "allowToChangeInstallationDirectory": true,
             "oneClick": false,
             "createDesktopShortcut": true
