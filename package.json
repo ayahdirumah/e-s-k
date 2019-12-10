@@ -1,0 +1,86 @@
+{
+    "name": "electron-starter-kit",
+    "productName": "electron-starter-kit",
+    "version": "1.0.0",
+    "description": "Electron starter kit with React, Redux, Webpack 4, Autoupdater and much more...",
+    "repository": "https://github.com/ayahdirumah/e-s-k.git",
+    "main": "main.js",
+    "scripts": {
+        "build": "webpack --colors --hide-modules --config=./webpack.prod.config.js",
+        "bundle": "webpack --colors --hide-modules --config=./webpack.dev.config.js",
+        "serve": "electron .",
+        "start": "cross-env NODE_ENV=development npm-run-all --parallel bundle serve",
+        "prod": "cross-env NODE_ENV=production npm-run-all --parallel build serve",
+        "package": "electron-builder -w",
+        "publish": "electron-builder -w -p always"
+    },
+    "author": "Tomasz Rembacz <mm@mm85.org>",
+    "license": "MIT",
+    "build": {
+        "appId": "com.starter.kit",
+        "win": {
+            "compression": "maximum",
+            "target": "nsis-web",
+            "icon": "assets/icons/icon.ico"
+        },
+        "mac": {
+            "category": "public.app-category.productivity"
+        },
+        "linux": {
+            "category": "Productivity",
+            "target": [
+                "AppImage"
+            ]
+        },
+        "nsisWeb": {
+            "allowToChangeInstallationDirectory": true,
+            "oneClick": false,
+            "createDesktopShortcut": true
+        },
+        "directories": {
+            "buildResources": "assets/icons",
+            "output": "dist"
+        },
+        "files": [
+            "**/*",
+            "!dist/*",
+            "!node_modules/*"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.7.5",
+        "@babel/plugin-proposal-class-properties": "^7.7.4",
+        "@babel/plugin-proposal-decorators": "^7.7.4",
+        "@babel/preset-env": "^7.7.6",
+        "@babel/preset-react": "^7.7.4",
+        "babel-eslint": "^10.0.3",
+        "babel-loader": "^8.0.6",
+        "cross-env": "^6.0.3",
+        "css-loader": "^3.3.0",
+        "electron": "^7.1.4",
+        "electron-builder": "21.2.0",
+        "electron-devtools-installer": "^2.2.4",
+        "electron-reload": "^1.5.0",
+        "eslint": "^6.7.2",
+        "eslint-loader": "^3.0.3",
+        "eslint-plugin-react": "^7.17.0",
+        "extract-text-webpack-plugin": "^4.0.0-beta.0",
+        "file-loader": "^5.0.2",
+        "html-webpack-plugin": "3.2.0",
+        "npm-run-all": "^4.1.5",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "url-loader": "^3.0.0",
+        "webpack": "^4.41.2",
+        "webpack-bundle-analyzer": "^3.6.0",
+        "webpack-cli": "^3.3.10"
+    },
+    "dependencies": {
+        "core-js": "^3.4.8",
+        "electron-updater": "^4.2.0",
+        "prop-types": "^15.7.2",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0",
+        "react-redux": "^7.1.3",
+        "redux": "^4.0.4"
+    }
+}
